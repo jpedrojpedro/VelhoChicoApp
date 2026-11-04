@@ -1,0 +1,401 @@
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fontes/roboto-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fontes/roboto-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("/fontes/roboto-900.woff2") format("woff2");
+}
+
+/* Paleta do app (VelhoChico: ui/theme/Color.kt) */
+:root {
+  --rio: #1e88a8;
+  --rio-escuro: #0d5c75;
+  --rio-claro: #8fd3e3;
+  --mata: #4c9a4a;
+  --areia: #f6e7c1;
+  --sol: #f5b935;
+  --madeira: #5b3a1e;
+  --branco: #ffffff;
+  --sombra: 0 6px 18px rgba(91, 58, 30, 0.14);
+  --raio: 28px;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--areia);
+  color: var(--madeira);
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--rio-escuro);
+  font-weight: 700;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--sol);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.conteudo {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--rio-escuro);
+  line-height: 1.15;
+  margin: 0;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+section {
+  padding: 56px 0;
+}
+
+/* ---------- Topo ---------- */
+
+.topo {
+  padding: 64px 0 40px;
+  text-align: center;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.marca img {
+  width: clamp(72px, 14vw, 112px);
+  height: auto;
+}
+
+.marca h1 {
+  font-size: clamp(2.75rem, 9vw, 4.75rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.chamada {
+  max-width: 34ch;
+  margin: 20px auto 32px;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 700;
+}
+
+/* ---------- Botão da Google Play ----------
+   Enquanto o app não está publicado, <body data-publicado="false"> mostra o
+   botão "Em breve". Ao publicar, troque para "true" e o selo oficial aparece. */
+
+.loja {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 72px;
+}
+
+.em-breve {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--madeira);
+  color: var(--branco);
+  font-size: 1.125rem;
+  font-weight: 700;
+  opacity: 0.45;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.em-breve svg {
+  width: 26px;
+  height: 26px;
+  flex: none;
+}
+
+.selo-oficial img {
+  width: 220px;
+  height: auto;
+}
+
+body[data-publicado="false"] .selo-oficial,
+body[data-publicado="true"] .em-breve {
+  display: none;
+}
+
+/* ---------- Os Jogos ---------- */
+
+.jogos-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.cartao {
+  background: var(--branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 24px;
+}
+
+.cartao p {
+  margin: 12px 0 0;
+}
+
+.ilustracoes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.ilustracoes img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.ilustracoes figure {
+  margin: 0;
+}
+
+.ilustracoes figcaption {
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.niveis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.niveis li {
+  background: var(--areia);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* ---------- Capturas ---------- */
+
+.capturas-lista {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.capturas-lista figure {
+  margin: 0;
+}
+
+.celular {
+  border: 8px solid var(--madeira);
+  border-radius: 32px;
+  overflow: hidden;
+  background: var(--madeira);
+  box-shadow: var(--sombra);
+}
+
+.celular img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 20;
+}
+
+.capturas-lista figcaption {
+  text-align: center;
+  font-weight: 700;
+  margin-top: 12px;
+  font-size: 1rem;
+}
+
+@media (max-width: 820px) {
+  .capturas-lista {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 4px 16px 16px;
+    margin: 0 -16px;
+    scrollbar-width: thin;
+  }
+
+  .capturas-lista li {
+    flex: 0 0 62%;
+    max-width: 260px;
+    scroll-snap-align: center;
+  }
+}
+
+/* ---------- Para os pais ---------- */
+
+.pais {
+  background: var(--branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 32px 24px;
+  margin: 56px 0;
+}
+
+.pais h2 {
+  margin-bottom: 24px;
+}
+
+.pontos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pontos li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.pontos li::before {
+  content: "";
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin-top: 0.45em;
+  border-radius: 50%;
+  background: var(--mata);
+}
+
+.pontos strong {
+  display: block;
+  color: var(--rio-escuro);
+}
+
+.pais .nota {
+  text-align: center;
+  margin: 28px 0 0;
+}
+
+/* ---------- Rodapé ---------- */
+
+.rodape {
+  border-top: 2px solid rgba(91, 58, 30, 0.15);
+  padding: 32px 0 40px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.rodape p {
+  margin: 4px 0;
+}
+
+/* ---------- Política de privacidade ---------- */
+
+.politica {
+  max-width: 720px;
+  padding-top: 40px;
+  padding-bottom: 56px;
+}
+
+.politica .voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.politica .voltar img {
+  width: 48px;
+  height: 48px;
+}
+
+.politica h1 {
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 900;
+  margin: 32px 0 8px;
+}
+
+.politica h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  text-align: left;
+  margin: 32px 0 8px;
+}
+
+.politica .atualizacao {
+  margin: 0 0 24px;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.politica .destaque {
+  background: var(--branco);
+  border-left: 8px solid var(--mata);
+  border-radius: 16px;
+  padding: 16px 20px;
+  font-weight: 700;
+}
